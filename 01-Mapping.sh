@@ -18,8 +18,8 @@ uname -a
 
 # HISAT2
 HISAT2_HOME=/panhome/varaldi/TOOLS/hisat2-2.1.0/
-# StringTie
-STRINGTIE=~/TOOLS/stringtie-1.3.4b.Linux_x86_64/stringtie
+# CUFFLINKS
+CUFFLINKS =
 # SAMTOOLS
 SAMTOOLS=/panusr/bin/samtools
 
@@ -65,10 +65,9 @@ $HISAT2_HOME/hisat2 -p 2 --dta -x $GENOME_INDEX -1 $FOLDER_init'/'$data1 -2 $FOL
 $SAMTOOLS view -Su alns.sam | $SAMTOOLS sort - alns.sorted
 
 ############################################################################
-#    STRINGTIE to generate a gtf for insect genes in particular
+#      CUFFLINKS
 ############################################################################
 
-$STRINGTIE alns.sorted.bam -o transcripts.gtf
 
 mv alns.sorted.bam $FOLDER'/'$data1
 mv transcripts.gtf $FOLDER'/'$data1
